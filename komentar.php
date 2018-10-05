@@ -1,8 +1,19 @@
-<?php
-	$server		= "localhost";
-	$username	= "root";
-	$password	= "";
-	$db 		= "db_mahasiswa";
+<form method="POST">
+	<h1>KOMENTAR</h1>
+	<textarea name="komentar"></textarea><br>
+	<input type="submit" name="submit" value="KIRIM">
+</form>
 
-	$konek = new mysqli($server, $username, $password, $db);
+<?php
+	if (isset($_POST['submit'])) {
+		$komentar = $_POST['komentar'];
+
+		if (str_word_count($komentar)>=5) {
+			echo "Komentar anda :<br>";
+			echo $komentar;
+		}
+		else{
+			echo "KOMENTAR Harus Lebih Dari 5 Kata";
+		}
+	}
 ?>
