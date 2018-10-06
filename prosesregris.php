@@ -21,14 +21,13 @@
 	  				$email = $_POST['email'];
 	  				$pass_mhs = $_POST['pass_mhs'];
 	  				$cekEmail = strpos($email, '@gmail.com');
-	  				$cekNama = strpos($nama, is_numeric($nama));
 	  				$query = mysqli_query($konek, "SELECT * FROM mhs WHERE nim = '$nim'");
 	  				$row = mysqli_fetch_array($query);
 
 	  				if (strlen($nim)<=10) {
 	  					if (is_numeric($nim) == TRUE) {
 	  						if (strlen($nama)<=25) {
-	  							if (is_string($nama) == TRUE) {
+	  							if (preg_match("/^[a-zA-Z ]*$/",$nama) {
 	  								if ($cekEmail !== FALSE) {
 	  									if ($nim!==$row['nim']) {
 	  										$sql = $konek->query("
